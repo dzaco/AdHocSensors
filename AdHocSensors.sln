@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Domain", "AdHocSensors.Domain\AdHocSensors.Domain.csproj", "{8A49A035-519A-4EC9-BAA8-C139E4DEE3A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensor.Application", "AdHocSensor.Application\AdHocSensor.Application.csproj", "{4EC70250-3DAA-40C4-A85A-3CEF48114087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Infrastucture", "AdHocSensors.Infrastucture\AdHocSensors.Infrastucture.csproj", "{765252D9-254B-4F51-B275-DDE459DC4174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.WebUI", "AdHocSensors.WebUI\AdHocSensors.WebUI.csproj", "{348008CF-98FF-44E9-9257-F892ED0919D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.API", "AdHocSensors.API\AdHocSensors.API.csproj", "{95CF7AAE-8CD7-45C2-A854-8F2E9958892B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Common", "AdHocSensors.Common\AdHocSensors.Common.csproj", "{F3185AA5-C571-4BEE-BD1A-DCA39DF8F352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A49A035-519A-4EC9-BAA8-C139E4DEE3A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A49A035-519A-4EC9-BAA8-C139E4DEE3A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A49A035-519A-4EC9-BAA8-C139E4DEE3A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A49A035-519A-4EC9-BAA8-C139E4DEE3A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC70250-3DAA-40C4-A85A-3CEF48114087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC70250-3DAA-40C4-A85A-3CEF48114087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC70250-3DAA-40C4-A85A-3CEF48114087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC70250-3DAA-40C4-A85A-3CEF48114087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{765252D9-254B-4F51-B275-DDE459DC4174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765252D9-254B-4F51-B275-DDE459DC4174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765252D9-254B-4F51-B275-DDE459DC4174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{765252D9-254B-4F51-B275-DDE459DC4174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{348008CF-98FF-44E9-9257-F892ED0919D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{348008CF-98FF-44E9-9257-F892ED0919D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{348008CF-98FF-44E9-9257-F892ED0919D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{348008CF-98FF-44E9-9257-F892ED0919D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CF7AAE-8CD7-45C2-A854-8F2E9958892B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CF7AAE-8CD7-45C2-A854-8F2E9958892B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CF7AAE-8CD7-45C2-A854-8F2E9958892B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CF7AAE-8CD7-45C2-A854-8F2E9958892B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3185AA5-C571-4BEE-BD1A-DCA39DF8F352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3185AA5-C571-4BEE-BD1A-DCA39DF8F352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3185AA5-C571-4BEE-BD1A-DCA39DF8F352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3185AA5-C571-4BEE-BD1A-DCA39DF8F352}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {714AB45B-058D-4749-8460-C8B51C916555}
+	EndGlobalSection
+EndGlobal
