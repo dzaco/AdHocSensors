@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdHocSensors.Domain
 {
-    public abstract class AreaElementBase
+    public class AreaElementBase : IEquatable<AreaElementBase>
     {
         public int Id { get; set; }
         public double X { get; set; }
@@ -18,5 +18,22 @@ namespace AdHocSensors.Domain
             X = x;
             Y = y;
         }
+
+        public bool Equals(AreaElementBase? other)
+        {
+            return other != null &&
+                X == other.X &&
+                Y == other.Y;
+        }
+
+        public double DistanceTo(AreaElementBase other)
+        {
+            var distance = Math.Sqrt(
+                Math.Pow(X - other.X, 2) + Math.Pow(Y - other.Y, 2));
+            return Math.Round(distance, 6, MidpointRounding.ToZero);
+        }
+
+        public static AreaElementBase Begin => new AreaElementBase(-1, 0, 0);
+        public static AreaElementBase End => new AreaElementBase(-1, 1, 1);
     }
 }

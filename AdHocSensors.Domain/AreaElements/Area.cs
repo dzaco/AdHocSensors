@@ -9,11 +9,13 @@ namespace AdHocSensors.Domain
 {
     public class Area
     {
-        public Size Size { get; }
+        public List<Poi> Pois { get; set; }
+        public List<Sensor> Sensors { get; set; }
 
-        public Area(Size size)
+        public Area()
         {
-            this.Size = size;
+            this.Pois = new List<Poi>();
+            this.Sensors = new List<Sensor>();
         }
     }
 }

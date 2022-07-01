@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdHocSensors.Domain
 {
-    internal class Sensor : AreaElementBase
+    public class Sensor : AreaElementBase
     {
         public double Range { get; set; }
         public Battery Battery { get; set; }
