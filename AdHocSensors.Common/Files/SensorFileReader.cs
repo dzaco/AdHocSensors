@@ -1,4 +1,6 @@
-﻿using AdHocSensors.Domain;
+﻿using AdHocSensors.Common.Commands;
+using AdHocSensors.Domain;
+using AdHocSensors.Domain.FactoryPackage;
 using AdHocSensors.Domain.SettingsPackage;
 using System;
 using System.Collections.Generic;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace AdHocSensors.Common.Files
 {
@@ -17,34 +20,72 @@ namespace AdHocSensors.Common.Files
                 throw new FileNotFoundException();
 
             var sensorList = new List<Sensor>();
-            var sensorId = 0;
             var range = GetSensorRangeFromPath(path);
             var batteryCapacity = Settings.Default.BatteryCapacity;
 
             var lines = File.ReadAllLines(path);
             var lineNumber = 0;
+            var assignCommands = new List<AssignCommand>();
+
             foreach (var line in lines)
             {
                 lineNumber++;
                 if (line.StartsWith('#'))
-                    continue;
-
-                var coordinateStrArr = line.Split(' ');
-                if (coordinateStrArr.Count() != 2)
-                    throw new ArgumentOutOfRangeException($"Cannot parse line number {lineNumber}: \'{line}\'. Incorrect number of coordinates");
-
-                var coordinates = coordinateStrArr.Select(x =>
                 {
-                    if (!double.TryParse(x, out var coordinate))
-                        throw new ArgumentException($"Cannot parse line number {lineNumber}: \'{line}\'. Cannot parse to double");
-                    return coordinate;
-                });
+                    assignCommands = CreateCommandList(line);
+                    continue;
+                }
 
-                sensorList.Add(new Sensor(sensorId++,
-                    coordinates.ElementAt(0), coordinates.ElementAt(1),
-                    range, batteryCapacity));
+                var sensor = new Sensor(0, 0, 0, range, Settings.Default.BatteryCapacity);
+                var parameters = line.Split(' ');
+                for (int i = 0; i < assignCommands.Count; i++)
+                {
+                    var command = assignCommands[i];
+                    var parameter = parameters[i];
+                    command.Execute(sensor, parameter);
+                }
+
+                sensorList.Add(sensor);
+            }
+
+            if (sensorList.TrueForAll(sensor => sensor.Id == 0))
+            {
+                var sensorId = 0;
+                sensorList.ForEach(sensor => sensor.Id = sensorId++);
             }
             return sensorList;
+        }
+
+        private static List<AssignCommand> CreateCommandList(string line)
+        {
+            if (line.StartsWith("#"))
+                line = line.Substring(1);
+
+            line.Trim();
+            var list = new List<AssignCommand>();
+            foreach (var parameter in line.Split(' '))
+            {
+                switch (parameter)
+                {
+                    case "id":
+                        list.Add(new AssignCommand((obj, value) => (obj as Sensor).Id = int.Parse((string)value)));
+                        break;
+
+                    case "x":
+                        list.Add(new AssignCommand((obj, value) => (obj as Sensor).X = double.Parse((string)value)));
+                        break;
+
+                    case "y":
+                        list.Add(new AssignCommand((obj, value) => (obj as Sensor).Y = double.Parse((string)value)));
+                        break;
+
+                    case "state":
+                        list.Add(new AssignCommand((obj, value) => (obj as Sensor).Battery.Turn((string)value)));
+                        break;
+                }
+            }
+
+            return list;
         }
 
         public static double GetSensorRangeFromPath(string path)
