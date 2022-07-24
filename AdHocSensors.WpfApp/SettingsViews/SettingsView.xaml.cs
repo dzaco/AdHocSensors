@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdHocSensors.Domain.SettingsPackage;
+using AdHocSensors.WpfApp.SettingsViews.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,12 @@ namespace AdHocSensors.WpfApp.SettingsViews
     /// </summary>
     public partial class SettingsView : UserControl
     {
+        private SettingsViewModel viewModel;
+
         public SettingsView()
         {
+            viewModel = new SettingsViewModel();
+            this.DataContext = viewModel;
             InitializeComponent();
         }
     }

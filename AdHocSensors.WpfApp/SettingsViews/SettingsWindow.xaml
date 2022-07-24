@@ -60,7 +60,7 @@
                         </Style.Triggers>
                     </Style>
                 </TabItem.Style>
-                <local:SettingsView VerticalAlignment="Stretch" DataContext="{Binding Settings}" />
+                <local:SettingsView VerticalAlignment="Stretch" />
             </TabItem>
         </TabControl>
         <Border Grid.Row="2" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0, 2, 0, 0">
@@ -69,7 +69,17 @@
                     <Button VerticalAlignment="Center"
                             Command="{Binding SaveAndCloseCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}}}"
-                            Content="Save" IsDefault="True"
+                            Content="Apply" IsDefault="True"
+                            Style="{StaticResource SettingButton}" />
+                    <Button VerticalAlignment="Center"
+                            Command="{Binding ResetAndCloseCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}}}"
+                            Content="Close" IsDefault="True"
+                            Style="{StaticResource SettingButton}" />
+                    <Button VerticalAlignment="Center"
+                            Command="{Binding TestCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Window}}}"
+                            Content="Test" IsDefault="True"
                             Style="{StaticResource SettingButton}" />
                 </StackPanel>
             </StackPanel>

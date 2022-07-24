@@ -22,7 +22,7 @@ namespace AdHocSensors.WpfApp.SettingsViews
     public partial class SettingsWindow : Window
     {
         private RelayCommand saveAndCloseCommand;
-        private RelayCommand closeWindowCommand;
+        private RelayCommand resetAndCloseCommand;
 
         public SettingsWindow()
         {
@@ -40,13 +40,13 @@ namespace AdHocSensors.WpfApp.SettingsViews
             }
         }
 
-        public RelayCommand CloseWindowCommand
+        public RelayCommand ResetAndCloseCommand
         {
             get
             {
-                if (closeWindowCommand == null)
-                    closeWindowCommand = new RelayCommand((x) => this.CloseWindow(x));
-                return closeWindowCommand;
+                if (resetAndCloseCommand == null)
+                    resetAndCloseCommand = new RelayCommand((x) => this.ResetAndClose(x));
+                return resetAndCloseCommand;
             }
         }
 
@@ -58,6 +58,18 @@ namespace AdHocSensors.WpfApp.SettingsViews
 
         private void Save()
         {
+            Settings.Current.CopyFrom(Settings.Editor);
+        }
+
+        private void ResetAndClose(object o)
+        {
+            this.ResetEditor();
+            this.CloseWindow(o);
+        }
+
+        private void ResetEditor()
+        {
+            Settings.Editor.CopyFrom(Settings.Current);
         }
 
         private void CloseWindow(object o)
@@ -68,6 +80,18 @@ namespace AdHocSensors.WpfApp.SettingsViews
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private RelayCommand testCommand;
+
+        public RelayCommand TestCommand
+        {
+            get
+            {
+                if (testCommand == null)
+                    testCommand = new RelayCommand((x) => MessageBox.Show($"POI count: {Settings.Editor.PoiCount}"));
+                return testCommand;
             }
         }
     }

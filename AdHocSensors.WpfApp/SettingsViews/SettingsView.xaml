@@ -4,9 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AdHocSensors.WpfApp.SettingsViews"
+             xmlns:viewmodels="clr-namespace:AdHocSensors.WpfApp.SettingsViews.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
-
+             d:DesignHeight="500" d:DesignWidth="500">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0">
         <Grid.Background>
             <SolidColorBrush Color="White" />
@@ -16,11 +23,19 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer d:DesignHeight="1000"  x:Name="MainScrollViewer" Grid.Row="0" Grid.RowSpan="1" VerticalAlignment="Stretch">
-            <StackPanel Orientation="Vertical" Margin="15,10,15,10" HorizontalAlignment="Left">
-                <Label Content="test" />
-                <Border BorderThickness="1 0 0 0" Margin="20,0,0,0">
+        <ScrollViewer d:DesignHeight="1000"  x:Name="MainScrollViewer" Grid.Row="0" Grid.RowSpan="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Vertical" Margin="15,10,15,10">
+                <Label Content="Basic" />
+                <Border BorderThickness="1 0 0 0" Margin="20,0,0,0"
+                        HorizontalAlignment="Stretch">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource ButtonBorderColor}" />
+                    </Border.BorderBrush>
                     <StackPanel Margin="5,0,0,0">
+                        <Label Content="POI Count" />
+                        <ComboBox ItemsSource="{Binding PossiblePoiCount}"
+                                  SelectedValue="{Binding Settings.PoiCount}"
+                                  Style="{StaticResource StandardComboBox}" />
                     </StackPanel>
                 </Border>
             </StackPanel>

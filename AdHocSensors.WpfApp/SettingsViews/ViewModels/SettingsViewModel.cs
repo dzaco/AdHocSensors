@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace AdHocSensors.WpfApp.SettingsViews.ViewModels
 {
-    public class SettingsWindowViewModel
+    public class SettingsViewModel
     {
         public Settings Settings { get; set; }
+        public List<int> PossiblePoiCount { get; set; }
 
-        public SettingsWindowViewModel()
+        public SettingsViewModel()
         {
-            Settings = Settings.Default;
+            Settings = Settings.Editor;
+            PossiblePoiCount = new List<int>() { 121, 225, 441 };
         }
     }
 }
