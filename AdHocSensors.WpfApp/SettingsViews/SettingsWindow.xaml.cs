@@ -90,7 +90,7 @@ namespace AdHocSensors.WpfApp.SettingsViews
             get
             {
                 if (testCommand == null)
-                    testCommand = new RelayCommand((x) => MessageBox.Show($"POI count: {Settings.Editor.PoiCount}"));
+                    testCommand = new RelayCommand((x) => MessageBox.Show($"Sensor range: {Settings.Editor.Range}"));
                 return testCommand;
             }
         }

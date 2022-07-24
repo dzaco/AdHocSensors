@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AdHocSensors.WpfApp.SettingsViews"
              xmlns:viewmodels="clr-namespace:AdHocSensors.WpfApp.SettingsViews.ViewModels"
+             xmlns:helpers="clr-namespace:AdHocSensors.WpfApp.Helpers"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="500">
     <UserControl.Resources>
@@ -35,7 +36,12 @@
                         <Label Content="POI Count" />
                         <ComboBox ItemsSource="{Binding PossiblePoiCount}"
                                   SelectedValue="{Binding Settings.PoiCount}"
-                                  Style="{StaticResource StandardComboBox}" />
+                                  Style="{StaticResource StandardComboBox}" Cursor="" />
+
+                        <Label Content="Sensor Range" />
+                        <TextBox Text="{Binding Settings.Range}"
+                                 helpers:InputValidationHelper.OnlyNumeric="Double"
+                                 Style="{StaticResource StandardTextBox}" />
                     </StackPanel>
                 </Border>
             </StackPanel>
