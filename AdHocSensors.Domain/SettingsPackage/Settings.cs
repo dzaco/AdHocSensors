@@ -14,14 +14,37 @@ namespace AdHocSensors.Domain.SettingsPackage
         public double BatteryCapacity { get; set; } = 100;
         public double Scale { get; set; } = 100;
 
-        public Settings()
+        private Settings()
         { }
 
-        private static Settings? _defaultInstance;
-
-        public static Settings Default
+        private Settings(Settings source)
         {
-            get { return _defaultInstance ?? (_defaultInstance = new Settings()); }
+            if (source is null)
+                CopyFrom(Default);
+            else
+                CopyFrom(source);
         }
+
+        public void CopyFrom(Settings source)
+        {
+            this.PoiCount = source.PoiCount;
+            this.SensorCount = source.SensorCount;
+            this.Range = source.Range;
+            this.BatteryCapacity = source.BatteryCapacity;
+            this.Scale = source.Scale;
+        }
+
+        public void Reset()
+        {
+            CopyFrom(Default);
+        }
+
+        private static Settings? _currentInstance;
+        private static Settings? _defaultInstance;
+        private static Settings? _editorInstance;
+
+        public static Settings Current => _currentInstance ?? (_currentInstance = new Settings());
+        public static Settings Default => _defaultInstance ?? (_defaultInstance = new Settings());
+        public static Settings Editor => _editorInstance ?? (_editorInstance = new Settings(_currentInstance));
     }
 }

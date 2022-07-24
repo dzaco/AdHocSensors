@@ -21,7 +21,7 @@ namespace AdHocSensors.Common.Files
 
             var sensorList = new List<Sensor>();
             var range = GetSensorRangeFromPath(path);
-            var batteryCapacity = Settings.Default.BatteryCapacity;
+            var batteryCapacity = Settings.Current.BatteryCapacity;
 
             var lines = File.ReadAllLines(path);
             var lineNumber = 0;
@@ -36,7 +36,7 @@ namespace AdHocSensors.Common.Files
                     continue;
                 }
 
-                var sensor = new Sensor(0, 0, 0, range, Settings.Default.BatteryCapacity);
+                var sensor = new Sensor(0, 0, 0, range, Settings.Current.BatteryCapacity);
                 var parameters = line.Split(' ');
                 for (int i = 0; i < assignCommands.Count; i++)
                 {
@@ -100,14 +100,14 @@ namespace AdHocSensors.Common.Files
                     var searchArea = match.Value.Substring(startIndex);
                     var rangeString = searchArea.TakeWhile(c => Char.IsDigit(c));
                     var fileDeclerRange = double.Parse(String.Join("", rangeString));
-                    return fileDeclerRange / Settings.Default.Scale;
+                    return fileDeclerRange / Settings.Current.Scale;
                 }
                 else
                     throw new ArgumentException();
             }
             catch (Exception)
             {
-                return Settings.Default.Range;
+                return Settings.Current.Range;
             }
         }
     }

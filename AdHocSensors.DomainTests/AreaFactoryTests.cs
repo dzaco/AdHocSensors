@@ -22,12 +22,12 @@ namespace AdHocSensors.DomainTests
         {
             var area = new AreaFactory()
                 .WithPois()
-                    .RandomLocated(count: Settings.Default.PoiCount)
+                    .RandomLocated(count: Settings.Current.PoiCount)
                     .Then()
                 .Build();
 
             Assert.That(area, Is.Not.Null);
-            Assert.That(area.Pois, Is.Not.Empty.And.Count.EqualTo(Settings.Default.PoiCount));
+            Assert.That(area.Pois, Is.Not.Empty.And.Count.EqualTo(Settings.Current.PoiCount));
             Assert.That(area.Pois, Is.Unique);
 
             Assert.That(area.Sensors, Is.Empty);
@@ -64,13 +64,13 @@ namespace AdHocSensors.DomainTests
         {
             var area = new AreaFactory()
                 .WithSensors()
-                    .RandomLocated(count: Settings.Default.SensorCount)
+                    .RandomLocated(count: Settings.Current.SensorCount)
                     .Then()
                 .Build();
 
             Assert.That(area, Is.Not.Null);
             Assert.That(area.Pois, Is.Empty);
-            Assert.That(area.Sensors, Is.Not.Empty.And.Count.EqualTo(Settings.Default.SensorCount));
+            Assert.That(area.Sensors, Is.Not.Empty.And.Count.EqualTo(Settings.Current.SensorCount));
             Assert.That(area.Sensors, Is.Unique);
         }
     }

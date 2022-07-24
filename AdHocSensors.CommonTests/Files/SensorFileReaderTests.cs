@@ -19,8 +19,8 @@ namespace AdHocSensors.CommonTests.Files
         [TestCase("WSN-45d-r30 (1).txt", 30.0d)]
         public void ShouldReturnRangeFromPath(string path, double expected)
         {
-            Settings.Default.Range = -1;
-            Settings.Default.Scale = 1;
+            Settings.Current.Range = -1;
+            Settings.Current.Scale = 1;
             double actualRange = SensorFileReader.GetSensorRangeFromPath(path);
             Assert.AreEqual(expected, actualRange);
         }
