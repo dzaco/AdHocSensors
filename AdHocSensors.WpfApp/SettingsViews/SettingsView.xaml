@@ -42,6 +42,11 @@
                         <TextBox Text="{Binding Settings.Range}"
                                  helpers:InputValidationHelper.OnlyNumeric="Double"
                                  Style="{StaticResource StandardTextBox}" />
+
+                        <Label Content="Battery Capacity" />
+                        <TextBox Text="{Binding Settings.BatteryCapacity}"
+                                 helpers:InputValidationHelper.OnlyNumeric="Double"
+                                 Style="{StaticResource StandardTextBox}" />
                     </StackPanel>
                 </Border>
             </StackPanel>
