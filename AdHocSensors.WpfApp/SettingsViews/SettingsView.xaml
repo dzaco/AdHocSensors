@@ -47,6 +47,20 @@
                         <TextBox Text="{Binding Settings.BatteryCapacity}"
                                  helpers:InputValidationHelper.OnlyNumeric="Double"
                                  Style="{StaticResource StandardTextBox}" />
+                        <Label Content="Scale" />
+                        <DockPanel VerticalAlignment="Center" Margin="10">
+                            <TextBox Text="{Binding Scale, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     DockPanel.Dock="Right"
+                                     TextAlignment="Right"
+                                     Width="40"
+                                     Style="{StaticResource StandardTextBox}" />
+                            <Slider Name="ScaleSliderValue"
+                                    Value="{Binding Scale, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    Maximum="500"
+                                    TickFrequency="20"
+                                    TickPlacement="BottomRight"
+                                    IsSnapToTickEnabled="True" />
+                        </DockPanel>
                     </StackPanel>
                 </Border>
             </StackPanel>

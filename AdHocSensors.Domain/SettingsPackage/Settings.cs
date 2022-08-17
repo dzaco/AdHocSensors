@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,13 +26,24 @@ namespace AdHocSensors.Domain.SettingsPackage
                 CopyFrom(source);
         }
 
+        public event EventHandler ScaleChanged;
+
+        public void EmitScaleChanged()
+        {
+            ScaleChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Scale)));
+        }
+
         public void CopyFrom(Settings source)
         {
             this.PoiCount = source.PoiCount;
             this.SensorCount = source.SensorCount;
             this.Range = source.Range;
             this.BatteryCapacity = source.BatteryCapacity;
+
+            var scaleBeforeChanged = Scale;
             this.Scale = source.Scale;
+            if (scaleBeforeChanged != Scale)
+                EmitScaleChanged();
         }
 
         public void Reset()

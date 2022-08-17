@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdHocSensors.Domain.SettingsPackage;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace AdHocSensors.WpfApp.AreaComponent
     {
         public AreaView()
         {
+            Settings.Current.ScaleChanged += SetSize;
             InitializeComponent();
             Build();
         }
@@ -59,8 +61,16 @@ namespace AdHocSensors.WpfApp.AreaComponent
         public void Build()
         {
             this.AreaViewModel.Canvas = this.AreaCanvas;
-            this.AreaViewModel.View = this;
+            SetSize();
             this.AreaViewModel.Build();
+        }
+
+        private void SetSize(object? sender = null, EventArgs e = null)
+        {
+            this.Border.Width = Settings.Current.Scale;
+            this.Border.Height = Settings.Current.Scale;
+            this.AreaCanvas.Width = Settings.Current.Scale;
+            this.AreaCanvas.Height = Settings.Current.Scale;
         }
     }
 }

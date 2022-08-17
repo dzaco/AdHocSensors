@@ -4,6 +4,7 @@ using AdHocSensors.Domain.SettingsPackage;
 using AdHocSensors.WpfApp.AreaComponent.PoiComponent;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -31,14 +32,7 @@ namespace AdHocSensors.WpfApp.AreaComponent
 
         internal void Build()
         {
-            SetSize();
             FillCanvas();
-        }
-
-        private void SetSize()
-        {
-            this.View.Border.Width = Settings.Current.Scale;
-            this.View.Border.Height = Settings.Current.Scale;
         }
 
         private void FillCanvas()
@@ -46,6 +40,13 @@ namespace AdHocSensors.WpfApp.AreaComponent
             this.Canvas.Children.Clear();
             pois = area.Pois.Select(poi => new PoiViewModel(poi)).ToList();
             pois.ForEach(poi => this.Canvas.Children.Add(poi.Shape));
+        }
+
+        internal void Resize()
+        {
+            foreach (var poi in pois)
+            {
+            }
         }
     }
 }

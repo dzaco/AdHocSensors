@@ -90,7 +90,7 @@ namespace AdHocSensors.WpfApp.SettingsViews
             get
             {
                 if (testCommand == null)
-                    testCommand = new RelayCommand((x) => MessageBox.Show($"battery: {Settings.Editor.BatteryCapacity}"));
+                    testCommand = new RelayCommand((x) => MessageBox.Show($"scale: {Settings.Editor.Scale}"));
                 return testCommand;
             }
         }

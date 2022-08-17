@@ -17,6 +17,7 @@ namespace AdHocSensors.WpfApp.AreaComponent.PoiComponent
         {
             this.poi = poi;
             CreateShape();
+            Settings.Current.ScaleChanged += RefreshShapeCoordinates;
         }
 
         private Poi poi;
@@ -64,13 +65,18 @@ namespace AdHocSensors.WpfApp.AreaComponent.PoiComponent
             _shape.Height = 5;
             _shape.Stroke = Brushes.Black;
             _shape.StrokeThickness = 2;
-            _shape.Margin = new Thickness(X, Y, 0, 0);
+            RefreshShapeCoordinates();
             SetToolTip();
         }
 
         private void SetToolTip()
         {
             _shape.ToolTip = $"#{poi.Id} ({poi.X},{poi.Y})";
+        }
+
+        public void RefreshShapeCoordinates(object? sender = null, EventArgs e = null)
+        {
+            _shape.Margin = new Thickness(X, Y, 0, 0);
         }
     }
 }
