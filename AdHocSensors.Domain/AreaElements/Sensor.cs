@@ -8,7 +8,6 @@ namespace AdHocSensors.Domain
 {
     public class Sensor : AreaElementBase
     {
-        public double Range { get; set; }
         public Battery Battery { get; set; }
 
         public Sensor(int id, double x, double y, double range, double batteryCapacity) : base(id, x, y)

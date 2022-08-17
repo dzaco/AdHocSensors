@@ -2,6 +2,7 @@
 using AdHocSensors.Domain.FactoryPackage;
 using AdHocSensors.Domain.SettingsPackage;
 using AdHocSensors.WpfApp.AreaComponent.PoiComponent;
+using AdHocSensors.WpfApp.AreaComponent.SensorComponent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,15 @@ namespace AdHocSensors.WpfApp.AreaComponent
         public double Width => Settings.Current.Scale;
         public double Height => Settings.Current.Scale;
 
-        public AreaView View { get; internal set; }
+        public List<Sensor> Sensors
+        {
+            get { return area.Sensors; }
+            set
+            {
+                area.Sensors = value;
+                Build();
+            }
+        }
 
         private Area area;
         private List<PoiViewModel> pois;
@@ -28,25 +37,27 @@ namespace AdHocSensors.WpfApp.AreaComponent
                     .EvenlyLocated(Settings.Current.PoiCount)
                     .Then()
                 .Build();
+
+            area.Sensors.Add(new Sensor(1, 0.5, 0.5, 0.1, 100));
         }
 
         internal void Build()
         {
-            FillCanvas();
+            this.Canvas.Children.Clear();
+            AddPoisToCanvas();
+            AddSensorsToCanvas();
         }
 
-        private void FillCanvas()
+        private void AddPoisToCanvas()
         {
-            this.Canvas.Children.Clear();
             pois = area.Pois.Select(poi => new PoiViewModel(poi)).ToList();
             pois.ForEach(poi => this.Canvas.Children.Add(poi.Shape));
         }
 
-        internal void Resize()
+        private void AddSensorsToCanvas()
         {
-            foreach (var poi in pois)
-            {
-            }
+            var viewModels = area.Sensors.Select(sensor => new SensorViewModel(sensor)).ToList();
+            viewModels.ForEach(sensor => this.Canvas.Children.Add(sensor.Shape));
         }
     }
 }

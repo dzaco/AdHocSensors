@@ -1,7 +1,10 @@
-﻿using AdHocSensors.WpfApp.AreaComponent;
+﻿using AdHocSensors.Common.Files;
+using AdHocSensors.WpfApp.AreaComponent;
 using AdHocSensors.WpfApp.SettingsViews;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +38,20 @@ namespace AdHocSensors.WpfApp
         {
             var window = new SettingsWindow();
             window.Show();
+        }
+
+        private void LoadState(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.Filter = "Text files (*.txt)|*.txt";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            dialog.Multiselect = false;
+
+            if (dialog.ShowDialog() == true)
+            {
+                var sensors = SensorFileReader.Read(dialog.FileName);
+                this.AreaViewModel.Sensors = sensors;
+            }
         }
     }
 }

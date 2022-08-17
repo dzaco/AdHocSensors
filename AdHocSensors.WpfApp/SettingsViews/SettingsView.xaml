@@ -56,8 +56,9 @@
                                      Style="{StaticResource StandardTextBox}" />
                             <Slider Name="ScaleSliderValue"
                                     Value="{Binding Scale, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                    Maximum="500"
-                                    TickFrequency="20"
+                                    Minimum="500"
+                                    Maximum="850"
+                                    TickFrequency="10"
                                     TickPlacement="BottomRight"
                                     IsSnapToTickEnabled="True" />
                         </DockPanel>
