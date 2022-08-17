@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:AdHocSensors.WpfApp"
+        xmlns:areaComponent="clr-namespace:AdHocSensors.WpfApp.AreaComponent"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
@@ -25,6 +26,6 @@
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
-        <TextBox AcceptsReturn="True" />
+        <areaComponent:AreaView AreaViewModel="{Binding AreaViewModel}" />
     </DockPanel>
 </Window>

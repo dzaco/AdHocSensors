@@ -1,4 +1,5 @@
-﻿using AdHocSensors.WpfApp.SettingsViews;
+﻿using AdHocSensors.WpfApp.AreaComponent;
+using AdHocSensors.WpfApp.SettingsViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,13 @@ namespace AdHocSensors.WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public AreaViewModel AreaViewModel { get; set; }
+
         public MainWindow()
         {
+            this.AreaViewModel = new AreaViewModel();
             InitializeComponent();
+            this.DataContext = this;
         }
 
         private void OpenSettingsWindow(object sender, RoutedEventArgs e)
