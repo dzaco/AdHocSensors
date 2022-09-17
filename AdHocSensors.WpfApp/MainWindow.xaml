@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:AdHocSensors.WpfApp"
         xmlns:areaComponent="clr-namespace:AdHocSensors.WpfApp.AreaComponent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowState="Maximized"
+        Title="MainWindow">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem>
