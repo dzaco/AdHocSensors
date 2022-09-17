@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdHocSensors.CommonTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestResourceManager", "TestResourceManager\TestResourceManager.csproj", "{FD784B21-E14B-491E-B706-F022E0C5BE5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.WpfApp", "AdHocSensors.WpfApp\AdHocSensors.WpfApp.csproj", "{4C0E1535-A363-41C8-8F0E-C2D0EF60A3FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdHocSensors.WpfApp", "AdHocSensors.WpfApp\AdHocSensors.WpfApp.csproj", "{4C0E1535-A363-41C8-8F0E-C2D0EF60A3FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Application", "AdHocSensors.Application\AdHocSensors.Application.csproj", "{8FA6278C-800F-40C7-A8AD-06328FF1A62F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Infrastucture", "AdHocSensors.Infrastucture\AdHocSensors.Infrastucture.csproj", "{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,14 @@ Global
 		{4C0E1535-A363-41C8-8F0E-C2D0EF60A3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C0E1535-A363-41C8-8F0E-C2D0EF60A3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C0E1535-A363-41C8-8F0E-C2D0EF60A3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA6278C-800F-40C7-A8AD-06328FF1A62F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA6278C-800F-40C7-A8AD-06328FF1A62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA6278C-800F-40C7-A8AD-06328FF1A62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA6278C-800F-40C7-A8AD-06328FF1A62F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
