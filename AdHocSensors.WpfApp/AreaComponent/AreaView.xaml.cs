@@ -26,15 +26,21 @@ namespace AdHocSensors.WpfApp.AreaComponent
         {
             Settings.Current.ScaleChanged += SetSize;
             InitializeComponent();
-            Build();
         }
 
         public static readonly DependencyProperty AreaViewModelProperty =
-        DependencyProperty.Register(
+        DependencyProperty.RegisterAttached(
             name: "AreaViewModel",
             propertyType: typeof(AreaViewModel),
             ownerType: typeof(AreaView),
-            typeMetadata: new FrameworkPropertyMetadata(defaultValue: new AreaViewModel()));
+            defaultMetadata: new PropertyMetadata(null, AreaViewModelChanged));
+
+        private static void AreaViewModelChanged(DependencyObject dependency, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var view = dependency as AreaView;
+            var viewModel = eventArgs.NewValue as AreaViewModel;
+            view.AreaViewModel = viewModel;
+        }
 
         public AreaView(AreaViewModel vm) : this()
         {
@@ -55,12 +61,13 @@ namespace AdHocSensors.WpfApp.AreaComponent
                 AreaViewModel.Canvas = this.AreaCanvas;
                 this.Border.Width = AreaViewModel.Width;
                 this.Border.Height = AreaViewModel.Height;
+                AreaViewModel.Build();
             }
         }
 
         public void Build()
         {
-            this.AreaViewModel.Canvas = this.AreaCanvas;
+            //this.AreaViewModel.Canvas = this.AreaCanvas;
             SetSize();
             this.AreaViewModel.Build();
         }

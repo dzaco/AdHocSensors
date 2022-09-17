@@ -36,7 +36,7 @@ namespace AdHocSensors.Common.Files
                     continue;
                 }
 
-                var sensor = new Sensor(0, 0, 0, range, Settings.Current.BatteryCapacity);
+                var sensor = new Sensor(sensorList.Count, 0, 0, range, Settings.Current.BatteryCapacity);
                 var parameters = line.Split(' ');
                 for (int i = 0; i < assignCommands.Count; i++)
                 {
@@ -46,12 +46,6 @@ namespace AdHocSensors.Common.Files
                 }
 
                 sensorList.Add(sensor);
-            }
-
-            if (sensorList.TrueForAll(sensor => sensor.Id == 0))
-            {
-                var sensorId = 0;
-                sensorList.ForEach(sensor => sensor.Id = sensorId++);
             }
             return sensorList;
         }

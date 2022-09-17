@@ -15,7 +15,7 @@
                 <MenuItem.Icon>
                     <fa:ImageAwesome Icon="File" Width="10" />
                 </MenuItem.Icon>
-                <MenuItem Header="_Open" />
+                <MenuItem Header="_Open" Click="LoadState" />
                 <MenuItem Header="_Save" />
                 <Separator />
                 <MenuItem Header="_Exit" />
