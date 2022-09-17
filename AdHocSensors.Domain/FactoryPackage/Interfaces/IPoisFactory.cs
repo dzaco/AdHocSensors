@@ -2,9 +2,9 @@
 {
     public interface IPoisFactory
     {
-        IPoisFactory RandomLocated(int count);
+        IPoisFactory RandomLocated(int size, int count);
 
-        IPoisFactory EvenlyLocated(int count);
+        IPoisFactory EvenlyLocated(int size, int count);
 
         IAreaFactory Then();
     }

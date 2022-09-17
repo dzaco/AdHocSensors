@@ -2,6 +2,8 @@
 {
     public interface ISensorsFactory
     {
+        ISensorsFactory FromList(IEnumerable<Sensor> sensors);
+
         ISensorsFactory RandomLocated(int count);
 
         IAreaFactory Then();

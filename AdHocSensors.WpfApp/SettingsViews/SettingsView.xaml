@@ -33,6 +33,11 @@
                         <SolidColorBrush Color="{StaticResource ButtonBorderColor}" />
                     </Border.BorderBrush>
                     <StackPanel Margin="5,0,0,0">
+                        <Label Content="Area Size" />
+                        <TextBox Text="{Binding Settings.AreaSize}"
+                                 helpers:InputValidationHelper.OnlyNumeric="Int"
+                                 Style="{StaticResource StandardTextBox}" />
+
                         <Label Content="POI Count" />
                         <ComboBox ItemsSource="{Binding PossiblePoiCount}"
                                   SelectedValue="{Binding Settings.PoiCount}"
@@ -56,9 +61,9 @@
                                      Style="{StaticResource StandardTextBox}" />
                             <Slider Name="ScaleSliderValue"
                                     Value="{Binding Scale, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                    Minimum="500"
+                                    Minimum="1"
                                     Maximum="850"
-                                    TickFrequency="10"
+                                    TickFrequency="1"
                                     TickPlacement="BottomRight"
                                     IsSnapToTickEnabled="True" />
                         </DockPanel>

@@ -59,8 +59,8 @@ namespace AdHocSensors.WpfApp.AreaComponent
             {
                 SetValue(AreaViewModelProperty, value);
                 AreaViewModel.Canvas = this.AreaCanvas;
-                this.Border.Width = AreaViewModel.Width;
-                this.Border.Height = AreaViewModel.Height;
+                this.Border.Width = AreaViewModel.Size;
+                this.Border.Height = AreaViewModel.Size;
                 AreaViewModel.Build();
             }
         }
@@ -74,10 +74,13 @@ namespace AdHocSensors.WpfApp.AreaComponent
 
         private void SetSize(object? sender = null, EventArgs e = null)
         {
-            this.Border.Width = Settings.Current.Scale;
-            this.Border.Height = Settings.Current.Scale;
-            this.AreaCanvas.Width = Settings.Current.Scale;
-            this.AreaCanvas.Height = Settings.Current.Scale;
+            if (AreaViewModel != null)
+            {
+                this.Border.Width = AreaViewModel.Size;
+                this.Border.Height = AreaViewModel.Size;
+                this.AreaCanvas.Width = AreaViewModel.Size;
+                this.AreaCanvas.Height = AreaViewModel.Size;
+            }
         }
     }
 }

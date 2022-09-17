@@ -13,15 +13,15 @@ namespace AdHocSensors.Domain.FactoryPackage
             this.parent = parent;
         }
 
-        public IPoisFactory EvenlyLocated(int count)
+        public IPoisFactory EvenlyLocated(int size, int count)
         {
             var poisPerSide = (int)Math.Round(Math.Sqrt(count));
-            var distance = (double)1 / (poisPerSide + 1);
+            var distance = (double)size / poisPerSide;
             var pois = new List<Poi>();
             var id = 0;
-            for (var y = distance; y < 1; y += distance)
+            for (var y = distance; y < size; y += distance)
             {
-                for (var x = distance; x < 1; x += distance)
+                for (var x = distance; x < size; x += distance)
                 {
                     pois.Add(new Poi(id++, x, y));
                 }
@@ -30,14 +30,14 @@ namespace AdHocSensors.Domain.FactoryPackage
             return this;
         }
 
-        public IPoisFactory RandomLocated(int count)
+        public IPoisFactory RandomLocated(int size, int count)
         {
             var random = new Random();
             var pois = new List<Poi>();
             for (int i = 0; i < count; i++)
             {
-                var x = random.NextDouble();
-                var y = random.NextDouble();
+                var x = random.NextDouble() * size;
+                var y = random.NextDouble() * size;
                 pois.Add(new Poi(i, x, y));
             }
             area.Pois = pois;

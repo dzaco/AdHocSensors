@@ -30,6 +30,12 @@ namespace AdHocSensors.Domain.FactoryPackage
             return this;
         }
 
+        public ISensorsFactory FromList(IEnumerable<Sensor> sensors)
+        {
+            area.Sensors = sensors.ToList();
+            return this;
+        }
+
         public IAreaFactory Then()
         {
             return areaFactory;

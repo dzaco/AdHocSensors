@@ -9,11 +9,12 @@ namespace AdHocSensors.Domain.SettingsPackage
 {
     public class Settings
     {
+        public int AreaSize { get; set; } = 100;
         public int PoiCount { get; set; } = 121;
         public int SensorCount { get; set; } = 100;
         public double Range { get; set; } = 0.2;
         public double BatteryCapacity { get; set; } = 100;
-        public double Scale { get; set; } = 500;
+        public double Scale { get; set; } = 7;
 
         private Settings()
         { }

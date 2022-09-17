@@ -14,8 +14,7 @@ namespace AdHocSensors.WpfApp.AreaComponent
     public class AreaViewModel
     {
         public Canvas Canvas { get; set; }
-        public double Width => Settings.Current.Scale;
-        public double Height => Settings.Current.Scale;
+        public double Size => Settings.Current.AreaSize * Settings.Current.Scale;
 
         public List<Sensor> Sensors
         {
@@ -34,11 +33,12 @@ namespace AdHocSensors.WpfApp.AreaComponent
         {
             this.area = new AreaFactory()
                 .WithPois()
-                    .EvenlyLocated(Settings.Current.PoiCount)
+                    .EvenlyLocated(Settings.Current.AreaSize, Settings.Current.PoiCount)
+                    .Then()
+                .WithSensors()
+                    .FromList(new[] { new Sensor(1, 50, 50, 20, 100) })
                     .Then()
                 .Build();
-
-            area.Sensors.Add(new Sensor(1, 0.5, 0.5, 0.1, 100));
         }
 
         internal void Build()
