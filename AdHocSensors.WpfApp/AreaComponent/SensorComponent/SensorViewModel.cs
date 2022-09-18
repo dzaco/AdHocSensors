@@ -43,7 +43,18 @@ namespace AdHocSensors.WpfApp.AreaComponent.SensorComponent
 
         protected override void SetToolTip()
         {
-            Shape.ToolTip = $"S#{Id} ({X},{Y})";
+            var builder = new StringBuilder("Sensor #");
+            builder.Append(Id);
+            if (Sensor.Battery.IsOn)
+                builder.Append(" ON");
+            else
+                builder.Append(" OFF");
+            builder.Append("\n(")
+                .Append(Sensor.X.ToString("0.00"))
+                .Append(", ")
+                .Append(Sensor.Y.ToString("0.00"))
+                .Append(")");
+            Shape.ToolTip = builder.ToString();
         }
 
         private void RefreshShapeRange(object? sender = null, EventArgs e = null)

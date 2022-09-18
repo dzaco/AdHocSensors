@@ -33,7 +33,15 @@ namespace AdHocSensors.WpfApp.AreaComponent.PoiComponent
 
         protected override void SetToolTip()
         {
-            Shape.ToolTip = $"POI#{Id} ({X},{Y})";
+            var builder = new StringBuilder();
+            builder.Append("POI #").Append(Id)
+                .Append(" Covered=").Append(Poi.IsCovered)
+                .Append("\n(")
+                .Append(Poi.X.ToString("0.00"))
+                .Append(", ")
+                .Append(Poi.Y.ToString("0.00"))
+                .Append(")");
+            Shape.ToolTip = builder.ToString();
         }
     }
 }
