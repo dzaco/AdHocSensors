@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdHocSensors.Common\AdHocSensors.Application.csproj" />
     <ProjectReference Include="..\AdHocSensors.Domain\AdHocSensors.Domain.csproj" />
+    <ProjectReference Include="..\AdHocSensors.Infrastucture\AdHocSensors.Infrastucture.csproj" />
   </ItemGroup>
 
   <ItemGroup>

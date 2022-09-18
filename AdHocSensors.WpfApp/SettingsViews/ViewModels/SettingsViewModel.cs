@@ -22,7 +22,7 @@ namespace AdHocSensors.WpfApp.SettingsViews.ViewModels
             {
                 Settings.Scale = value;
                 if (SetField<double>(ref _scale, value, "Scale"))
-                    Settings.EmitScaleChanged();
+                    Settings.EmitSizeChanged();
             }
         }
 

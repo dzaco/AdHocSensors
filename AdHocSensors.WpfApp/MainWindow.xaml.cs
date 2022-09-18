@@ -34,8 +34,7 @@ namespace AdHocSensors.WpfApp
         public MainWindow()
         {
             Register.InitrRegister();
-            var area = Register.Container.Resolve<Area>();
-            this.AreaViewModel = new AreaViewModel(area);
+            this.AreaViewModel = Register.Container.Resolve<AreaViewModel>();
             InitializeComponent();
             this.DataContext = this;
         }

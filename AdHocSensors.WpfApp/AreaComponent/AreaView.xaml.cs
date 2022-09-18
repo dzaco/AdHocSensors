@@ -1,19 +1,8 @@
 ﻿using AdHocSensors.Domain.SettingsPackage;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Unity;
 
 namespace AdHocSensors.WpfApp.AreaComponent
 {
@@ -40,11 +29,6 @@ namespace AdHocSensors.WpfApp.AreaComponent
             var view = dependency as AreaView;
             var viewModel = eventArgs.NewValue as AreaViewModel;
             view.AreaViewModel = viewModel;
-        }
-
-        public AreaView(AreaViewModel vm) : this()
-        {
-            this.AreaViewModel = vm;
         }
 
         public AreaViewModel AreaViewModel

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdHocSensors.Domain.SettingsPackage
 {
-    public class Settings
+    public class Settings : IEquatable<Settings>
     {
         public int AreaSize { get; set; } = 100;
         public int PoiCount { get; set; } = 121;
@@ -29,7 +29,7 @@ namespace AdHocSensors.Domain.SettingsPackage
 
         public event EventHandler ScaleChanged;
 
-        public void EmitScaleChanged()
+        public void EmitSizeChanged()
         {
             ScaleChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Scale)));
         }
@@ -40,16 +40,24 @@ namespace AdHocSensors.Domain.SettingsPackage
             this.SensorCount = source.SensorCount;
             this.Range = source.Range;
             this.BatteryCapacity = source.BatteryCapacity;
-
-            var scaleBeforeChanged = Scale;
             this.Scale = source.Scale;
-            if (scaleBeforeChanged != Scale)
-                EmitScaleChanged();
+            this.AreaSize = source.AreaSize;
         }
 
         public void Reset()
         {
             CopyFrom(Default);
+        }
+
+        public bool Equals(Settings? other)
+        {
+            if (other is null) return false;
+            return
+                other.Scale == this.Scale &&
+                other.Range == this.Range &&
+                other.PoiCount == this.PoiCount &&
+                other.AreaSize == this.AreaSize &&
+                other.SensorCount == this.SensorCount;
         }
 
         private static Settings? _currentInstance;

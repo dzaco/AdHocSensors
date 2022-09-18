@@ -1,5 +1,6 @@
 ﻿using AdHocSensors.Common.Commands;
 using AdHocSensors.Domain.SettingsPackage;
+using AdHocSensors.WpfApp.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,9 @@ namespace AdHocSensors.WpfApp.SettingsViews
 
         private void Save()
         {
-            Settings.Current.CopyFrom(Settings.Editor);
+            var command = new ApplyNewSettingsCommand();
+            if (command.CanExecute(Settings.Editor))
+                command.Execute(Settings.Editor);
         }
 
         private void ResetAndClose(object o)

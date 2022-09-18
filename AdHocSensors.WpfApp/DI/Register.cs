@@ -1,6 +1,7 @@
 ﻿using AdHocSensors.Domain;
 using AdHocSensors.Domain.FactoryPackage;
 using AdHocSensors.Domain.SettingsPackage;
+using AdHocSensors.WpfApp.AreaComponent;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -19,7 +20,9 @@ namespace AdHocSensors
         public static void InitrRegister()
         {
             Container = new UnityContainer();
-            Container.RegisterInstance<Area>(CreateDefaultArea());
+            var area = CreateDefaultArea();
+            Container.RegisterInstance<Area>(area);
+            Container.RegisterInstance<AreaViewModel>(new AreaViewModel(area));
         }
 
         private static Area CreateDefaultArea()
