@@ -1,4 +1,6 @@
-﻿using AdHocSensors.Common.Files;
+﻿using AdHocSensors.Domain.FactoryPackage;
+using AdHocSensors.Domain.SettingsPackage;
+using AdHocSensors.Domain;
 using AdHocSensors.WpfApp.AreaComponent;
 using AdHocSensors.WpfApp.SettingsViews;
 using Microsoft.Win32;
@@ -17,6 +19,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AdHocSensors.Common;
+using Unity;
 
 namespace AdHocSensors.WpfApp
 {
@@ -29,7 +33,9 @@ namespace AdHocSensors.WpfApp
 
         public MainWindow()
         {
-            this.AreaViewModel = new AreaViewModel();
+            Register.InitrRegister();
+            var area = Register.Container.Resolve<Area>();
+            this.AreaViewModel = new AreaViewModel(area);
             InitializeComponent();
             this.DataContext = this;
         }

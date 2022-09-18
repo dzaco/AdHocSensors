@@ -14,8 +14,7 @@ namespace AdHocSensors.Common.Commands
 
         public event EventHandler? CanExecuteChanged;
 
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+        public RelayCommand(Action<object> execute) : this(execute, null)
         {
         }
 

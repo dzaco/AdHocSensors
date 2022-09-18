@@ -29,16 +29,9 @@ namespace AdHocSensors.WpfApp.AreaComponent
         private Area area;
         private List<PoiViewModel> pois;
 
-        public AreaViewModel()
+        public AreaViewModel(Area area)
         {
-            this.area = new AreaFactory()
-                .WithPois()
-                    .EvenlyLocated(Settings.Current.AreaSize, Settings.Current.PoiCount)
-                    .Then()
-                .WithSensors()
-                    .FromList(new[] { new Sensor(1, 50, 50, 20, 100) })
-                    .Then()
-                .Build();
+            this.area = area;
         }
 
         internal void Build()
