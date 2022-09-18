@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdHocSensors.WpfApp", "AdHo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.Infrastucture", "AdHocSensors.Infrastucture\AdHocSensors.Infrastucture.csproj", "{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdHocSensors.WpfAppTests", "AdHocSensors.WpfAppTests\AdHocSensors.WpfAppTests.csproj", "{D85D9BF1-3577-4284-8DC0-35DE40FF3E01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B2CF36F-6CF7-4D33-AEA2-43CFC6F63F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85D9BF1-3577-4284-8DC0-35DE40FF3E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85D9BF1-3577-4284-8DC0-35DE40FF3E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85D9BF1-3577-4284-8DC0-35DE40FF3E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85D9BF1-3577-4284-8DC0-35DE40FF3E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{8FAD043C-E431-4A7D-A083-7924BAD2BA7F} = {76AE1099-4F3B-419D-A007-05236C6351EC}
 		{16DF6B9B-3BAB-41F4-B0F8-3134613E7E6F} = {76AE1099-4F3B-419D-A007-05236C6351EC}
 		{FD784B21-E14B-491E-B706-F022E0C5BE5F} = {76AE1099-4F3B-419D-A007-05236C6351EC}
+		{D85D9BF1-3577-4284-8DC0-35DE40FF3E01} = {76AE1099-4F3B-419D-A007-05236C6351EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {714AB45B-058D-4749-8460-C8B51C916555}

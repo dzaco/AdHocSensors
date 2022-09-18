@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace AdHocSensors.Common.Files
+namespace AdHocSensors
 {
     public class SensorFileReader
     {

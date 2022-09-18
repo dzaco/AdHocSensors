@@ -1,5 +1,4 @@
-﻿using AdHocSensors.Common.Files;
-using AdHocSensors.Domain.SettingsPackage;
+﻿using AdHocSensors.Domain.SettingsPackage;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
