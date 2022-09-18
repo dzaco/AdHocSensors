@@ -25,7 +25,7 @@ namespace AdHocSensors.Domain
                 poi.IsCovered = false;
                 foreach (var sensor in Sensors)
                 {
-                    if (sensor.IsInRange(poi))
+                    if (sensor.Battery.IsOn && sensor.IsInRange(poi))
                     {
                         sensor.Pois.Add(poi);
                         poi.IsCovered = true;
