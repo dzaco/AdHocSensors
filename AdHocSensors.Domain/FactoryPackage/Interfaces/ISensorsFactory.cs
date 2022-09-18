@@ -7,5 +7,7 @@
         ISensorsFactory RandomLocated(int count);
 
         IAreaFactory Then();
+
+        ISensorsFactory WithRange(double range);
     }
 }

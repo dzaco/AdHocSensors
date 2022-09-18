@@ -17,6 +17,14 @@ namespace AdHocSensors.Domain.FactoryPackage
             this._area = new Area();
         }
 
+        public AreaFactory(Area area)
+        {
+            if (area is not null)
+                _area = area;
+            else
+                _area = new Area();
+        }
+
         public Area Build()
         {
             return _area;

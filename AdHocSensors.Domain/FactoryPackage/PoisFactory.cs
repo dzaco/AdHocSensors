@@ -16,13 +16,15 @@ namespace AdHocSensors.Domain.FactoryPackage
         public IPoisFactory EvenlyLocated(int size, int count)
         {
             var poisPerSide = (int)Math.Round(Math.Sqrt(count));
-            var distance = (double)size / poisPerSide;
+            var distance = (double)size / (poisPerSide + 1);
             var pois = new List<Poi>();
             var id = 0;
-            for (var y = distance; y < size; y += distance)
+            for (var row = 0; row < poisPerSide; row++)
             {
-                for (var x = distance; x < size; x += distance)
+                var y = (row + 1) * distance;
+                for (var col = 0; col < poisPerSide; col++)
                 {
+                    var x = (col + 1) * distance;
                     pois.Add(new Poi(id++, x, y));
                 }
             }

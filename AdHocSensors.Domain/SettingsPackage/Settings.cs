@@ -12,7 +12,7 @@ namespace AdHocSensors.Domain.SettingsPackage
         public int AreaSize { get; set; } = 100;
         public int PoiCount { get; set; } = 121;
         public int SensorCount { get; set; } = 100;
-        public double Range { get; set; } = 0.2;
+        public double Range { get; set; } = 20;
         public double BatteryCapacity { get; set; } = 100;
         public double Scale { get; set; } = 7;
 

@@ -36,6 +36,15 @@ namespace AdHocSensors.Domain.FactoryPackage
             return this;
         }
 
+        public ISensorsFactory WithRange(double range)
+        {
+            foreach (var sensor in area.Sensors)
+            {
+                sensor.Range = range;
+            }
+            return this;
+        }
+
         public IAreaFactory Then()
         {
             return areaFactory;
