@@ -4,7 +4,7 @@
     {
         ISensorsFactory FromList(IEnumerable<Sensor> sensors);
 
-        ISensorsFactory RandomLocated(int count);
+        ISensorsFactory RandomLocated(int size, int count);
 
         IAreaFactory Then();
 

@@ -22,7 +22,7 @@ namespace AdHocSensors.DomainTests
         {
             var area = new AreaFactory()
                 .WithPois()
-                    .RandomLocated(count: Settings.Current.PoiCount)
+                    .RandomLocated(size: 100, count: Settings.Current.PoiCount)
                     .Then()
                 .Build();
 
@@ -38,7 +38,7 @@ namespace AdHocSensors.DomainTests
         {
             var area = new AreaFactory()
                 .WithPois()
-                    .EvenlyLocated(count: 121)
+                    .EvenlyLocated(size: 100, count: 121)
                     .Then()
                 .Build();
 
@@ -64,7 +64,7 @@ namespace AdHocSensors.DomainTests
         {
             var area = new AreaFactory()
                 .WithSensors()
-                    .RandomLocated(count: Settings.Current.SensorCount)
+                    .RandomLocated(size: 100, count: Settings.Current.SensorCount)
                     .Then()
                 .Build();
 

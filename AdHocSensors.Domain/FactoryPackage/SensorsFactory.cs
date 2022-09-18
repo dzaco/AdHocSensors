@@ -13,14 +13,14 @@ namespace AdHocSensors.Domain.FactoryPackage
             this.areaFactory = areaFactory;
         }
 
-        public ISensorsFactory RandomLocated(int count)
+        public ISensorsFactory RandomLocated(int size, int count)
         {
             var random = new Random();
             var sensors = new List<Sensor>();
             for (int i = 0; i < count; i++)
             {
-                var x = random.NextDouble();
-                var y = random.NextDouble();
+                var x = random.NextDouble() * size;
+                var y = random.NextDouble() * size;
                 var defaultSensorRange = Settings.Current.Range;
                 var defaultBatteryCapacity = Settings.Current.BatteryCapacity;
 
