@@ -27,6 +27,7 @@ namespace AdHocSensors.Domain.FactoryPackage
 
         public Area Build()
         {
+            _area.DetectCoveredPois();
             return _area;
         }
 

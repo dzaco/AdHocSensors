@@ -24,7 +24,9 @@ namespace AdHocSensors.Domain.FactoryPackage
                 var defaultSensorRange = Settings.Current.Range;
                 var defaultBatteryCapacity = Settings.Current.BatteryCapacity;
 
-                sensors.Add(new Sensor(i, x, y, defaultSensorRange, defaultBatteryCapacity));
+                var sensor = new Sensor(i, x, y, defaultSensorRange, defaultBatteryCapacity);
+                sensor.Battery.Turn(random.NextDouble() < 0.5);
+                sensors.Add(sensor);
             }
             this.area.Sensors = sensors;
             return this;

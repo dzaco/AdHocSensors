@@ -16,7 +16,7 @@
             switch (value)
             {
                 case string:
-                    IsOn = (string)value == "1";
+                    IsOn = (string)value == "1" || (string)value == "on";
                     break;
 
                 case char:

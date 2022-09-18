@@ -23,11 +23,19 @@ namespace AdHocSensors.WpfApp.AreaComponent.SensorComponent
 
         protected override void CreateShape()
         {
-            Shape = new Ellipse()
-            {
-                Stroke = Brushes.Black,
-                StrokeThickness = 2,
-            };
+            if (Sensor.Battery.IsOn)
+                Shape = new Ellipse()
+                {
+                    Stroke = Brushes.Green,
+                    Fill = new SolidColorBrush(Color.FromArgb(100, 0, 255, 0)),
+                    StrokeThickness = 2,
+                };
+            else
+                Shape = new Ellipse()
+                {
+                    Stroke = Brushes.Black,
+                    StrokeThickness = 2,
+                };
             RefreshShapeCoordinates();
             RefreshShapeRange();
             SetToolTip();

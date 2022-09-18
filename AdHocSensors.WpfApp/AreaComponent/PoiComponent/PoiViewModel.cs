@@ -25,7 +25,7 @@ namespace AdHocSensors.WpfApp.AreaComponent.PoiComponent
             Shape = new Ellipse();
             Shape.Width = 5;
             Shape.Height = 5;
-            Shape.Stroke = Brushes.Black;
+            Shape.Stroke = Poi.IsCovered ? Brushes.Green : Brushes.Black;
             Shape.StrokeThickness = 2;
             RefreshShapeCoordinates();
             SetToolTip();

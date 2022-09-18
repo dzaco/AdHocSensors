@@ -17,5 +17,21 @@ namespace AdHocSensors.Domain
             this.Pois = new List<Poi>();
             this.Sensors = new List<Sensor>();
         }
+
+        public void DetectCoveredPois()
+        {
+            foreach (var poi in Pois)
+            {
+                poi.IsCovered = false;
+                foreach (var sensor in Sensors)
+                {
+                    if (sensor.IsInRange(poi))
+                    {
+                        sensor.Pois.Add(poi);
+                        poi.IsCovered = true;
+                    }
+                }
+            }
+        }
     }
 }

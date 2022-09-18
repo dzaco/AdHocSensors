@@ -37,6 +37,7 @@ namespace AdHocSensors.WpfApp.AreaComponent
         internal void Build()
         {
             this.Canvas.Children.Clear();
+            area.DetectCoveredPois();
             AddPoisToCanvas();
             AddSensorsToCanvas();
         }
