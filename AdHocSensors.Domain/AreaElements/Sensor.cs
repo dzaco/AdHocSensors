@@ -18,6 +18,17 @@ namespace AdHocSensors.Domain
             Pois = new List<Poi>();
         }
 
+        public double Coverage
+        {
+            get
+            {
+                if (Battery.IsOn)
+                    return 1;
+                else
+                    return (double)Pois.Where(poi => poi.IsCovered).Count() / Pois.Count;
+            }
+        }
+
         public bool IsInRange(Poi poi)
         {
             return DistanceTo(poi) <= Range;

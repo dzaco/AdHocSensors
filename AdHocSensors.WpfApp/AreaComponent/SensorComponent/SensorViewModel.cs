@@ -49,7 +49,8 @@ namespace AdHocSensors.WpfApp.AreaComponent.SensorComponent
                 builder.Append(" ON");
             else
                 builder.Append(" OFF");
-            builder.Append("\n(")
+            builder
+                .Append(" q=\'").Append(Sensor.Coverage.ToString("0.00")).Append("\'\n(")
                 .Append(Sensor.X.ToString("0.00"))
                 .Append(", ")
                 .Append(Sensor.Y.ToString("0.00"))
