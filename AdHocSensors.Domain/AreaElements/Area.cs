@@ -34,5 +34,12 @@ namespace AdHocSensors.Domain
                 }
             }
         }
+
+        internal double Coverage()
+        {
+            int coveredPoisCount = Pois.Count(poi => poi.IsCovered);
+            int poisCount = Pois.Count;
+            return (double)coveredPoisCount / poisCount;
+        }
     }
 }

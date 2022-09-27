@@ -16,6 +16,8 @@ namespace AdHocSensors.Domain.SettingsPackage
         public double BatteryCapacity { get; set; } = 100;
         public double Scale { get; set; } = 7;
 
+        public Area Area { get; set; }
+
         private Settings()
         { }
 

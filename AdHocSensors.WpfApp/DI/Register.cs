@@ -21,6 +21,7 @@ namespace AdHocSensors
         {
             Container = new UnityContainer();
             var area = CreateDefaultArea();
+            Settings.Current.Area = area;
             Container.RegisterInstance<Area>(area);
             Container.RegisterInstance<AreaViewModel>(new AreaViewModel(area));
         }
