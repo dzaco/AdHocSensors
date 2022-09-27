@@ -9,7 +9,6 @@ namespace AdHocSensors.Domain.GA
 {
     public class StateTable
     {
-        public double[] Coverage { get; }
         private bool[][] table;
         private int rows;
         private int cols;
@@ -20,7 +19,6 @@ namespace AdHocSensors.Domain.GA
             this.cols = cols;
 
             this.table = CreateTable(rows, cols);
-            this.Coverage = new double[cols];
         }
 
         public bool[][] CreateTable(int rows, int cols)

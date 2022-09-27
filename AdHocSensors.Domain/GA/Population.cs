@@ -21,7 +21,7 @@ namespace AdHocSensors.Domain.GA
 
         public static Population RandomPopulation(int individualCount, int chromosomLength, List<Sensor> sensors)
         {
-            var population = new Population(1, individualCount, chromosomLength);
+            var population = new Population(0, individualCount, chromosomLength);
             population.Individuals = RandIndividuals(individualCount, chromosomLength, sensors);
             return population;
         }
@@ -85,6 +85,11 @@ namespace AdHocSensors.Domain.GA
         {
             newPopulation.Individuals.Add(pair.Item1);
             newPopulation.Individuals.Add(pair.Item2);
+        }
+
+        public GAResult CreateResult()
+        {
+            return new GAResult(Generation, Individuals);
         }
     }
 }

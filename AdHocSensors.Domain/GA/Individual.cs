@@ -21,6 +21,7 @@ namespace AdHocSensors.Domain.GA
             this.rows = sensors.Count;
             this.cols = iterationCount;
             this.StateTable = stateTable;
+            this.Coverage = CalculateFitness();
         }
 
         public Individual(List<Sensor> sensors, int iterationCount)
@@ -80,6 +81,7 @@ namespace AdHocSensors.Domain.GA
         public void Mutate(int index)
         {
             this.StateTable.Toggle(index);
+            this.Coverage = CalculateFitness();
         }
     }
 }

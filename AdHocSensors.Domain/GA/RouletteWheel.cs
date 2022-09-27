@@ -18,7 +18,7 @@
         private void Build()
         {
             this.lastEndSegment = 0.0;
-            var sorted = this.individuals.OrderBy(ind => ind.CalculateFitness());
+            var sorted = this.individuals.OrderByDescending(ind => ind.CalculateFitness());
             foreach (var ind in sorted)
             {
                 var newLast = lastEndSegment + ind.CalculateFitness();
