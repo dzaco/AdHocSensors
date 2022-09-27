@@ -13,7 +13,7 @@ namespace AdHocSensors.Domain.GA
         private readonly List<Sensor> sensors;
         private readonly int cols;
         public StateTable StateTable { get; }
-        public double[] Coverage;
+        public double Coverage { get; private set; }
 
         public Individual(List<Sensor> sensors, int iterationCount, StateTable stateTable)
         {

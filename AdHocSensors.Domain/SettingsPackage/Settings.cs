@@ -16,6 +16,11 @@ namespace AdHocSensors.Domain.SettingsPackage
         public double BatteryCapacity { get; set; } = 100;
         public double Scale { get; set; } = 7;
 
+        public int GenerationCount { get; set; } = 500;
+        public int PopulationSize { get; set; } = 100;
+        public double MutationProbability { get; set; } = 0.03;
+        public int IterationCount { get; set; } = 100;
+
         public Area Area { get; set; }
 
         private Settings()
@@ -43,7 +48,13 @@ namespace AdHocSensors.Domain.SettingsPackage
             this.Range = source.Range;
             this.BatteryCapacity = source.BatteryCapacity;
             this.Scale = source.Scale;
+
             this.AreaSize = source.AreaSize;
+
+            this.GenerationCount = source.GenerationCount;
+            this.PopulationSize = source.PopulationSize;
+            this.MutationProbability = source.MutationProbability;
+            this.IterationCount = source.IterationCount;
         }
 
         public void Reset()
@@ -60,6 +71,21 @@ namespace AdHocSensors.Domain.SettingsPackage
                 other.PoiCount == this.PoiCount &&
                 other.AreaSize == this.AreaSize &&
                 other.SensorCount == this.SensorCount;
+        }
+
+        public override string ToString()
+        {
+            return new StringBuilder()
+                .AppendLine("[Settings]")
+                .AppendLine(String.Format("{0,11}:{1}", "Pois", PoiCount))
+                .AppendLine(String.Format("{0,11}:{1}", "Sensors", SensorCount))
+                .AppendLine(String.Format("{0,11}:{1}", "Range", Range))
+                .AppendLine(String.Format("{0,11}:{1}", "Battery", BatteryCapacity))
+                .AppendLine(String.Format("{0,11}:{1}", "Generations", GenerationCount))
+                .AppendLine(String.Format("{0,11}:{1}", "Populations", PopulationSize))
+                .AppendLine(String.Format("{0,11}:{1}", "Iterations", IterationCount))
+                .AppendLine(String.Format("{0,11}:{1}", "Mutation", MutationProbability))
+                .ToString();
         }
 
         private static Settings? _currentInstance;

@@ -1,6 +1,4 @@
-﻿using AdHocSensors.Domain.SettingsPackage;
-using AdHocSensors.WpfApp.SettingsViews.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +16,11 @@ using System.Windows.Shapes;
 namespace AdHocSensors.WpfApp.SettingsViews
 {
     /// <summary>
-    /// Interaction logic for SettingsView.xaml
+    /// Interaction logic for GASettingsView.xaml
     /// </summary>
-    public partial class SettingsView : UserControl
+    public partial class GASettingsView : UserControl
     {
-        public SettingsView()
+        public GASettingsView()
         {
             InitializeComponent();
         }

@@ -1,6 +1,7 @@
 ﻿using AdHocSensors.Common.Commands;
 using AdHocSensors.Domain.SettingsPackage;
 using AdHocSensors.WpfApp.Commands;
+using AdHocSensors.WpfApp.SettingsViews.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,16 @@ namespace AdHocSensors.WpfApp.SettingsViews
     {
         private RelayCommand saveAndCloseCommand;
         private RelayCommand resetAndCloseCommand;
+        private SettingsViewModel settingsVM;
 
         public SettingsWindow()
         {
             this.DataContext = this;
             InitializeComponent();
+
+            this.settingsVM = new SettingsViewModel();
+            this.SettingsTab.DataContext = settingsVM;
+            this.GASettingsTab.DataContext = settingsVM;
         }
 
         public RelayCommand SaveAndCloseCommand
@@ -93,7 +99,7 @@ namespace AdHocSensors.WpfApp.SettingsViews
             get
             {
                 if (testCommand == null)
-                    testCommand = new RelayCommand((x) => MessageBox.Show($"scale: {Settings.Editor.Scale}"));
+                    testCommand = new RelayCommand((x) => MessageBox.Show(Settings.Editor.ToString()));
                 return testCommand;
             }
         }

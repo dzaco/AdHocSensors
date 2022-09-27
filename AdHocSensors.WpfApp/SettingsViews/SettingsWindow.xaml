@@ -53,7 +53,7 @@
                     <Style TargetType="TabItem">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Settings}" Value="True">
-                                <Setter Property="IsEnabled" Value="False" />
+                                <Setter Property="IsEnabled" Value="True" />
                                 <Setter Property="ToolTip" Value="Model application settings" />
                                 <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
                             </DataTrigger>
@@ -61,6 +61,20 @@
                     </Style>
                 </TabItem.Style>
                 <local:SettingsView VerticalAlignment="Stretch" />
+            </TabItem>
+            <TabItem x:Name="GASettingsTab" Header="GA Settings" VerticalAlignment="Stretch">
+                <TabItem.Style>
+                    <Style TargetType="TabItem">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Settings}" Value="True">
+                                <Setter Property="IsEnabled" Value="True" />
+                                <Setter Property="ToolTip" Value="Genetic Algorith Settings" />
+                                <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TabItem.Style>
+                <local:GASettingsView VerticalAlignment="Stretch" />
             </TabItem>
         </TabControl>
         <Border Grid.Row="2" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0, 2, 0, 0">
